@@ -13,3 +13,6 @@
 - Dependencies:
     - [SwiftLint](https://github.com/realm/SwiftLint)
     - [Firebase](https://github.com/firebase/firebase-ios-sdk)
+    - [JGProgressHUD](https://github.com/JonasGessner/JGProgressHUD)
+    - [SDWebImage](https://github.com/SDWebImage/SDWebImage)
+    - [MessageKit](https://github.com/MessageKit/MessageKit)
