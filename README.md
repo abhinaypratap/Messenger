@@ -11,5 +11,5 @@
 - Source Control: Git
 - Dependency Manager: Swift Package Manager
 - Dependencies:
-    - SwiftLint
-
+    - [SwiftLint](https://github.com/realm/SwiftLint)
+    - [Firebase](https://github.com/firebase/firebase-ios-sdk)
