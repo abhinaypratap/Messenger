@@ -1,4 +1,6 @@
 import UIKit
+import FirebaseAuth
+import JGProgressHUD
 
 final class RegisterViewController: UIViewController {
 
@@ -92,6 +94,8 @@ final class RegisterViewController: UIViewController {
         return button
     }()
 
+    private let spinner = JGProgressHUD(style: .dark)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Create Account"
@@ -180,6 +184,7 @@ extension RegisterViewController {
     }
 
     @objc
+    // swiftlint:disable:next function_body_length
     fileprivate func registerButtonTapped() {
         firstNameField.resignFirstResponder()
         lastNameField.resignFirstResponder()
@@ -197,12 +202,65 @@ extension RegisterViewController {
             !password.isEmpty,
             password.count >= 6
         else {
-            alertUserLoginError()
+            presentRegistrationErrorAlert()
             return
+        }
+
+        spinner.show(in: view)
+
+        DatabaseManager.shared.isRegistered(with: email) { [weak self] registered in
+            guard let strongSelf = self else { return }
+
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss(animated: true)
+            }
+
+            guard !registered else {
+                /// User already registered with this email
+                strongSelf.presentRegistrationErrorAlert(
+                    message: "Looks like a user is already registered with this email."
+                )
+                return
+            }
+
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                guard result != nil, error == nil else {
+                    debugPrint("Failed: \(#function)")
+                    return
+                }
+
+                UserDefaults.standard.setValue(email, forKey: "email")
+                UserDefaults.standard.setValue("\(firstName) \(lastName)", forKey: "name")
+
+                let user = User(
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email
+                )
+
+                DatabaseManager.shared.insertUser(with: user) { success in
+                    if success {
+                        // upload image
+                        guard let image = strongSelf.imageView.image, let data = image.pngData() else { return }
+                        let fileName = user.profilePictureFileName
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName) { result in
+                            switch result {
+                            case .success(let downloadURL):
+                                UserDefaults.standard.set(downloadURL, forKey: "profile_picture_url")
+                                debugPrint(downloadURL)
+                            case .failure(let error):
+                                debugPrint("Storage manager error: \(error)")
+                            }
+                        }
+                    }
+                }
+
+                strongSelf.navigationController?.dismiss(animated: true)
+            }
         }
     }
 
-    func alertUserLoginError(message: String = "Please enter all information to create account.") {
+    func presentRegistrationErrorAlert(message: String = "Please enter all information to create account.") {
         let alertController = UIAlertController(
             title: "Oops",
             message: message,
