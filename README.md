@@ -16,3 +16,7 @@
     - [JGProgressHUD](https://github.com/JonasGessner/JGProgressHUD)
     - [SDWebImage](https://github.com/SDWebImage/SDWebImage)
     - [MessageKit](https://github.com/MessageKit/MessageKit)
+- Firebase products used in this project:
+    - Authentication
+    - Realtime Database
+    - Storage
