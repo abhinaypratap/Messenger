@@ -16,6 +16,7 @@
 		3BDD4FCB29B8228E0062263E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3BDD4FCA29B8228E0062263E /* README.md */; };
 		3BDD4FD329B828B50062263E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD4FD229B828B50062263E /* Utilities.swift */; };
 		3BDD4FD529B82C980062263E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD4FD429B82C980062263E /* RegisterViewController.swift */; };
+		3BDD4FD729B840470062263E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD4FD629B840470062263E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3BDD4FCA29B8228E0062263E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3BDD4FD229B828B50062263E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3BDD4FD429B82C980062263E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3BDD4FD629B840470062263E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				3BDD4FB929B81B610062263E /* ConversationsViewController.swift */,
 				3BDD4FD429B82C980062263E /* RegisterViewController.swift */,
+				3BDD4FD629B840470062263E /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BDD4FD729B840470062263E /* LoginViewController.swift in Sources */,
 				3BDD4FBA29B81B610062263E /* ConversationsViewController.swift in Sources */,
 				3BDD4FD529B82C980062263E /* RegisterViewController.swift in Sources */,
 				3BDD4FB629B81B610062263E /* AppDelegate.swift in Sources */,
