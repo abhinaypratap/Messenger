@@ -184,6 +184,7 @@ extension RegisterViewController {
     }
 
     @objc
+    // TODO: Fix it, rather than suppressing it.
     // swiftlint:disable:next function_body_length
     fileprivate func registerButtonTapped() {
         firstNameField.resignFirstResponder()
