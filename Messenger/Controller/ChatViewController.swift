@@ -156,11 +156,14 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                         otherUserEmail: strongSelf.otherUserEmail,
                         name: name,
                         newMessage: message) { success in
-                            if success {
-                                debugPrint("Photo message sent")
-                            } else {
-                                debugPrint("Failed to send photo message")
-                            }
+                            debugPrint(success == true ? "Photo message sent" : "Failed to send photo message")
+//                            if success {
+//                                debugPrint("Photo message sent")
+//                            }
+//
+//                            if !success {
+//                                debugPrint("Failed to send photo message")
+//                            }
                         }
                 case .failure(let error):
                     debugPrint("Failed to upload photo message: \(error)")
@@ -202,11 +205,12 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                         otherUserEmail: strongSelf.otherUserEmail,
                         name: name,
                         newMessage: message) { success in
-                            if success {
-                                debugPrint("Video message sent")
-                            } else {
-                                debugPrint("Failed to send video message")
-                            }
+                            debugPrint(success == true ? "Video message sent" : "Failed to send video message")
+//                            if success {
+//                                debugPrint("Video message sent")
+//                            } else {
+//                                debugPrint("Failed to send video message")
+//                            }
                         }
                 case .failure(let error):
                     debugPrint("Failed to upload video message: \(error)")

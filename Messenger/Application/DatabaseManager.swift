@@ -150,23 +150,25 @@ extension DatabaseManager {
 
             case .text(let messageText):
                 message = messageText
-            case .attributedText(_):
-                break
-            case .photo(_):
-                break
-            case .video(_):
-                break
-            case .location(_):
-                break
-            case .emoji(_):
-                break
-            case .audio(_):
-                break
-            case .contact(_):
-                break
-            case .linkPreview(_):
-                break
-            case .custom(_):
+//            case .attributedText(_):
+//                break
+//            case .photo(_):
+//                break
+//            case .video(_):
+//                break
+//            case .location(_):
+//                break
+//            case .emoji(_):
+//                break
+//            case .audio(_):
+//                break
+//            case .contact(_):
+//                break
+//            case .linkPreview(_):
+//                break
+//            case .custom(_):
+//                break
+            default:
                 break
             }
             // swiftlint:enable empty_enum_arguments
@@ -274,23 +276,25 @@ extension DatabaseManager {
 
         case .text(let messageText):
             message = messageText
-        case .attributedText(_):
-            break
-        case .photo(_):
-            break
-        case .video(_):
-            break
-        case .location(_):
-            break
-        case .emoji(_):
-            break
-        case .audio(_):
-            break
-        case .contact(_):
-            break
-        case .linkPreview(_):
-            break
-        case .custom(_):
+//        case .attributedText(_):
+//            break
+//        case .photo(_):
+//            break
+//        case .video(_):
+//            break
+//        case .location(_):
+//            break
+//        case .emoji(_):
+//            break
+//        case .audio(_):
+//            break
+//        case .contact(_):
+//            break
+//        case .linkPreview(_):
+//            break
+//        case .custom(_):
+//            break
+        default:
             break
         }
         // swiftlint:enable empty_enum_arguments
